@@ -3,8 +3,8 @@ import { TodoApp } from './pages/TodoApp';
 
 export function RootCmp() {
   return (
-    <div className="App">
-    <TodoApp/>
+    <div className='app'>
+      <TodoApp />
     </div>
   );
 }

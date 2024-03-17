@@ -22,3 +22,7 @@ ul{
 .todo-preview-container{
   display: flex;
 }
+
+.todo-preview-done{
+  text-decoration: line-through;
+}

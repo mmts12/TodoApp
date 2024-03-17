@@ -10,7 +10,13 @@ export const TodoApp = () => {
 
   useEffect(() => {
     setTodos(todoService.query())
+    
   }, [])
+
+  useEffect(() => {
+    console.log(todos);
+    
+  }, [todos]);
 
 
   const onInsertNewTodo = (ev) => {
@@ -35,6 +41,19 @@ export const TodoApp = () => {
     setTodos(copyTodos);
   }
 
+  const onDone = (todoId) => {
+    console.log(todoId);
+    let copyTodos = [...todos];
+    copyTodos = copyTodos.map((todo) => {
+      if (todo.id === todoId) {
+         todo.isDone = !todo.isDone
+      }
+      return todo;
+
+    })
+    setTodos(copyTodos);
+  }
+
   return (
     <>
       <h1>Todo App2</h1>
@@ -45,7 +64,7 @@ export const TodoApp = () => {
           <input type="text" name="" value={txt} onChange={(ev) => onInsertNewTodo(ev)} />
         </form>
         <div>
-          <TodoList todos={todos} onDeleteTodo={onDeleteTodo} />
+          <TodoList todos={todos} onDeleteTodo={onDeleteTodo} onDone={onDone} />
         </div>
       </div>
     </>
